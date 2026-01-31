@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNP Assurance - Neurolists Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+
+<body>
+
+    <!-- Dynamic Background -->
+    <div class="background-container">
+        <div class="neurolists-text">NEUROLISTS</div>
+        <div class="ambient-glow"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Responsive Main Container -->
+    <div class="main-layout">
+
+        <!-- DASHBOARD WINDOW -->
+        <div class="dashboard-window">
+            <div class="window-header">
+                <div class="window-controls">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <span>ANALYSE TEMPS RÉEL</span>
+            </div>
+            <div id="dashboard-content">
+                <div class="log-sys">Neurolists OS v2.3 Dynamic Ready</div>
+            </div>
+        </div>
+
+        <!-- Adaptive iPhone Frame -->
+        <div class="iphone-frame">
+            <div class="screen">
+                <!-- Status Bar -->
+                <div class="status-bar">
+                    <span class="time" id="clock-time">09:41</span>
+                    <div class="dynamic-island"></div>
+                    <div class="status-icons">
+                        <i class="fas fa-signal"></i>
+                        <i class="fas fa-wifi"></i>
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                </div>
+
+                <!-- VIEW 1: Contacts List -->
+                <div id="view-contacts" class="view contacts-view active">
+                    <div class="contacts-header">
+                        <h1>Contacts</h1>
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <span>Rechercher</span>
+                        </div>
+                    </div>
+
+                    <div class="contacts-list">
+                        <!-- CNP Assurance -->
+                        <div class="contact-item" onclick="startCall('CNP Assurance')">
+                            <div class="avatar" style="background: linear-gradient(135deg, #007AFF, #00C6FF);">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="name">CNP Assurance</span>
+                            </div>
+                            <i class="fas fa-phone call-icon-item"></i>
+                        </div>
+
+                        <!-- Manal ES-SOBHY -->
+                        <div class="contact-item" onclick="startCall('Manal ES-SOBHY')">
+                            <div class="avatar" style="background: #A2A2A7;">
+                                <span>ME</span>
+                            </div>
+                            <div class="contact-info">
+                                <span class="name">Manal ES-SOBHY</span>
+                            </div>
+                            <i class="fas fa-phone call-icon-item"></i>
+                        </div>
+
+                        <!-- Nizar Baloubali -->
+                        <div class="contact-item" onclick="startCall('Nizar Baloubali')">
+                            <div class="avatar" style="background: #A2A2A7;">
+                                <span>NB</span>
+                            </div>
+                            <div class="contact-info">
+                                <span class="name">Nizar Baloubali</span>
+                            </div>
+                            <i class="fas fa-phone call-icon-item"></i>
+                        </div>
+
+                        <!-- AYA lamzouri -->
+                        <div class="contact-item" onclick="startCall('AYA lamzouri')">
+                            <div class="avatar" style="background: #A2A2A7;">
+                                <span>AL</span>
+                            </div>
+                            <div class="contact-info">
+                                <span class="name">AYA lamzouri</span>
+                            </div>
+                            <i class="fas fa-phone call-icon-item"></i>
+                        </div>
+                    </div>
+
+                    <!-- Tab Bar -->
+                    <div class="tab-bar">
+                        <div class="tab-item">
+                            <i class="far fa-star"></i>
+                            <span>Favoris</span>
+                        </div>
+                        <div class="tab-item">
+                            <i class="far fa-clock"></i>
+                            <span>Récents</span>
+                        </div>
+                        <div class="tab-item active">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Contacts</span>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fas fa-th"></i>
+                            <span>Clavier</span>
+                        </div>
+                        <div class="tab-item">
+                            <i class="fas fa-voicemail"></i>
+                            <span>Messagerie</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW 2: Call Interface -->
+                <div id="view-call" class="view call-view">
+                    <div class="caller-info">
+                        <h2 class="caller-name" id="active-caller-name">CNP Assurance</h2>
+                        <p class="call-status" id="call-status">Appel en cours...</p>
+                        <p class="call-timer" id="call-timer">00:00</p>
+                    </div>
+
+                    <div class="visualizer-container">
+                        <div class="visualizer-circle">
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="wave"></div>
+                            <div class="core-glow"></div>
+                        </div>
+                    </div>
+
+                    <div class="controls-grid">
+                        <div class="control-item-wrapper">
+                            <button class="control-btn"><i class="fas fa-microphone-slash"></i></button>
+                            <span class="control-label">silence</span>
+                        </div>
+                        <div class="control-item-wrapper">
+                            <button class="control-btn"><i class="fas fa-th"></i></button>
+                            <span class="control-label">clavier</span>
+                        </div>
+                        <div class="control-item-wrapper">
+                            <button class="control-btn"><i class="fas fa-volume-up"></i></button>
+                            <span class="control-label">audio</span>
+                        </div>
+                        <div class="control-item-wrapper">
+                            <button class="control-btn"><i class="fas fa-plus"></i></button>
+                            <span class="control-label">nouvel appel</span>
+                        </div>
+                        <div class="control-item-wrapper">
+                            <button class="control-btn"><i class="fas fa-video"></i></button>
+                            <span class="control-label">FaceTime</span>
+                        </div>
+                        <div class="control-item-wrapper">
+                            <button class="control-btn"><i class="fas fa-user-circle"></i></button>
+                            <span class="control-label">contacts</span>
+                        </div>
+                    </div>
+
+                    <div class="end-call-container">
+                        <button class="end-call-btn" id="end-call-btn">
+                            <i class="fas fa-phone-slash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="home-indicator"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

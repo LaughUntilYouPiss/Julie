@@ -1,0 +1,577 @@
+/* CSS Variables */
+:root {
+    --bg-dark: #000000;
+    --accent-blue: #007AFF;
+    --accent-cyan: #00f2ff;
+    --accent-purple: #bd00ff;
+    --text-primary: #ffffff;
+    --text-secondary: #8E8E93;
+    --ios-grey: #1C1C1E;
+    --ios-search: #1C1C1E;
+    --danger: #FF3B30;
+    --success: #34C759;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #050510;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    perspective: 1200px;
+    padding: 20px;
+}
+
+/* =========================================
+   PAGE BACKGROUND (NEUROLISTS)
+   ========================================= */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at 50% 50%, #150825 0%, #000000 100%);
+}
+
+.neurolists-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 8vw;
+    /* Reduced to ensure full visibility on small screens */
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    z-index: 1;
+    letter-spacing: 1.5vw;
+    filter: drop-shadow(0 0 50px rgba(189, 0, 255, 0.2));
+    width: 100%;
+    text-align: center;
+}
+
+.ambient-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(0, 242, 255, 0.1) 0%, transparent 60%),
+        radial-gradient(circle at 90% 90%, rgba(189, 0, 255, 0.1) 0%, transparent 60%);
+    z-index: 2;
+    animation: pulseAmbient 10s infinite alternate;
+}
+
+@keyframes pulseAmbient {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
+}
+
+/* =========================================
+   MAIN LAYOUT (DYNAMIC & ADAPTIVE)
+   ========================================= */
+.main-layout {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4vw;
+    /* Dynamic gap */
+    width: 100%;
+    max-width: 1400px;
+    height: 90vh;
+    /* Responsive height */
+    max-height: 900px;
+}
+
+/* =========================================
+   DASHBOARD WINDOW (RESPONSIVE)
+   ========================================= */
+.dashboard-window {
+    width: 35%;
+    /* % based width */
+    min-width: 300px;
+    max-width: 500px;
+    height: 100%;
+    /* Follows parent layout */
+    background: rgba(10, 10, 15, 0.7);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.window-header {
+    height: 60px;
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+    margin-right: 20px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red {
+    background: #FF5F56;
+}
+
+.dot.yellow {
+    background: #FFBD2E;
+}
+
+.dot.green {
+    background: #27C93F;
+}
+
+.window-header span {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+
+#dashboard-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.log-entry {
+    max-width: 90%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.log-user {
+    background: #007AFF;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.log-agent {
+    background: #262629;
+    color: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.log-sys {
+    align-self: center;
+    color: #8E8E93;
+    font-style: italic;
+    font-size: 12px;
+}
+
+/* =========================================
+   IPHONE FRAME (RESPONSIVE)
+   ========================================= */
+.iphone-frame {
+    position: relative;
+    /* This makes it scale perfectly based on viewport height */
+    height: 100%;
+    aspect-ratio: 1 / 2;
+    /* Maintains iPhone shape */
+    max-height: 850px;
+    background: #000;
+    border-radius: 60px;
+    box-shadow:
+        0 0 0 4px #1a1a1a,
+        0 0 0 12px #333,
+        0 40px 100px rgba(0, 0, 0, 0.9);
+    z-index: 10;
+    border: 8px solid #000;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: relative;
+    border-radius: 52px;
+    overflow: hidden;
+}
+
+/* Status Bar & Dynamic Island */
+.status-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 44px;
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    z-index: 100;
+}
+
+.dynamic-island {
+    width: 35%;
+    height: 70%;
+    background: #000;
+    border-radius: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+}
+
+/* =========================================
+   VIEWS SYSTEM
+   ========================================= */
+.view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    padding-top: 50px;
+    background: #000;
+}
+
+.view.active {
+    display: flex;
+}
+
+/* CONTACTS VIEW */
+.contacts-view {
+    background: #000000;
+    color: white;
+}
+
+.contacts-header {
+    padding: 10px 20px;
+}
+
+.contacts-header h1 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.search-bar {
+    background: var(--ios-search);
+    border-radius: 10px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #8E8E93;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.contacts-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 20px 100px 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 0.5px solid #222;
+    cursor: pointer;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    margin-right: 12px;
+    flex-shrink: 0;
+    color: white;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info .name {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Call Icon in list */
+.call-icon-item {
+    color: var(--accent-blue);
+    font-size: 18px;
+    margin-left: 10px;
+    opacity: 0.8;
+}
+
+/* Tab Bar */
+.tab-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 85px;
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+    border-top: 0.5px solid #222;
+}
+
+.tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: #8E8E92;
+    font-size: 9px;
+    width: 20%;
+}
+
+.tab-item i {
+    font-size: 22px;
+}
+
+.tab-item.active {
+    color: var(--accent-blue);
+}
+
+/* =========================================
+   CALL VIEW
+   ========================================= */
+.call-view {
+    background: radial-gradient(circle at 50% 30%, #2b3352 0%, #000000 100%);
+    padding: 15% 10% 10% 10%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.call-view.active {
+    display: flex;
+}
+
+.caller-info {
+    text-align: center;
+}
+
+.caller-name {
+    font-size: 28px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.call-status {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.call-timer {
+    font-size: 16px;
+    color: white;
+    margin-top: 2px;
+    opacity: 0;
+}
+
+.call-timer.visible {
+    opacity: 1;
+}
+
+.visualizer-container {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visualizer-circle {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.core-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+}
+
+.wave {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    animation: waveAnim 2s infinite ease-out;
+}
+
+@keyframes waveAnim {
+    0% {
+        width: 18px;
+        height: 18px;
+        opacity: 1;
+        border-width: 2px;
+    }
+
+    100% {
+        width: 180px;
+        height: 180px;
+        opacity: 0;
+        border-width: 0px;
+    }
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.control-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.control-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    border: none;
+}
+
+.control-label {
+    font-size: 11px;
+    color: white;
+}
+
+.end-call-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--danger);
+    color: white;
+    font-size: 32px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.home-indicator {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+/* RESPONSIVE SCALING FOR MOBILE / SMALL PC */
+@media (max-height: 700px) {
+    .main-layout {
+        gap: 2vw;
+        transform: scale(0.9);
+    }
+
+    .iphone-frame {
+        border-radius: 40px;
+        border-width: 6px;
+    }
+
+    .status-bar {
+        height: 35px;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-layout {
+        flex-direction: column-reverse;
+        height: auto;
+        padding: 20px;
+    }
+
+    .dashboard-window {
+        width: 100%;
+        height: 300px;
+    }
+
+    .iphone-frame {
+        height: 600px;
+    }
+}
