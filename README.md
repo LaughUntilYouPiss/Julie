@@ -6,7 +6,6 @@
 Insurance call centers handle a high volume of repetitive, low-complexity customer requests, leading to long waiting times and operational overload.
 This project presents an **AI-powered insurance callbot** that leverages **Generative AI, Agentic AI and NLP pipelines** to autonomously handle common customer inquiries, improving efficiency, responsiveness, and customer satisfaction.
 
----
 
 ## 🎯 Problem Statement
 
