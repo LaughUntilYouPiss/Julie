@@ -7,6 +7,7 @@ Insurance call centers handle a high volume of repetitive, low-complexity custom
 This project presents an **AI-powered insurance callbot** that leverages **Generative AI, Agentic AI and NLP pipelines** to autonomously handle common customer inquiries, improving efficiency, responsiveness, and customer satisfaction.
 
 
+
 ## 🎯 Problem Statement
 
 Insurance support teams receive thousands of daily calls related to:
@@ -23,7 +24,7 @@ These repetitive interactions result in:
 
 ➡️ **The challenge:** automate these requests while maintaining accuracy, clarity, and user trust.
 
----
+
 
 ## 🚀 Proposed Solution
 
@@ -37,7 +38,7 @@ We developed an **intelligent conversational callbot** capable of:
 
 The system is designed to handle the majority of first-level customer interactions autonomously, escalating only complex cases to human agents.
 
----
+
 
 ## 🧠 System Architecture (High-Level)
 
@@ -51,7 +52,7 @@ The system is designed to handle the majority of first-level customer interactio
 5. Reasoning and response generation using Large Language Models (LLMs)  
 6. Structured and contextual response delivery to the user  
 
----
+
 
 ## 🛠️ Technologies Used
 
@@ -62,7 +63,7 @@ The system is designed to handle the majority of first-level customer interactio
 * **Multilingual Embeddings**
 * **Chroma Vector Database**
 
----
+
 
 ## 📂 Deliverables
 
@@ -75,7 +76,7 @@ As required for the hackathon submission:
 **Access all deliverables here:**
 [Google Drive – Presentation & Demo Video](https://drive.google.com/drive/folders/1_9cu88-4_XAGNgrONXYsIxmy98HEdzSQ)
 
----
+
 
 ## 💡 Impact & Benefits
 
@@ -87,7 +88,7 @@ This solution enables:
 * increased productivity for call center agents
 * scalable and multilingual customer support
 
----
+
 
 ## 👥 Team
 
@@ -101,14 +102,14 @@ Project developed for the **GenAI Morocco Hackathon – Capgemini**
 
 All team members contributed to the ideation, development, and presentation of this project.
 
----
+
 
 ## 🤝 Contributions & Collaboration
 
 This repository represents a collaborative hackathon project.
 All contributors are listed as collaborators and participated actively throughout the project lifecycle.
 
----
+
 
 ## ✨ Conclusion
 
