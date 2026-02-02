@@ -96,8 +96,8 @@ Project developed for the **GenAI Morocco Hackathon – Capgemini**
 
 | Name                | Role                                                |
 | ------------------- | --------------------------------------------------- |
-| **Manal Es-Sobhy**  | AI Agent Conception, NLP Pipeline & System Design   |
-| **Nizar Baloubali** | Prompt Engineering & Audio Input/Output Integration |
+| **Manal Es-Sobhy**  | AI Agent Conception, NLP Pipeline, System Design, Prompt Engineering & Audio Input/Output Integration |
+| **Nizar Baloubali** | AI Agent Conception, NLP Pipeline, System Design, Prompt Engineering & Audio Input/Output Integration |
 | **Aya Lemzouri**    | Research, Documentation & Testing                   |
 
 All team members contributed to the ideation, development, and presentation of this project.
